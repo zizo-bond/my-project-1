@@ -42,7 +42,7 @@ h1 {
 }
 
 h2 {
-    border-bottom: 1px solid #cc1;
+    border-bottom: 1px solid rgb(107, 107, 38);
     font-family: "Oxygen", Sans-Serif;
     font-size: 3em;
     color: #fff;
@@ -58,10 +58,11 @@ main {
     margin: 10vh 1em 10vh;
 }
 
-.main-hero {
+.main-head {
     min-height: 40vh;
     padding-top: 3em;
 }
+
 
 section {
     position: relative;
@@ -70,7 +71,7 @@ section {
 
 /* ---- Module Rules ---- */
 
-/* Navigation Styles*/
+/* Nav Styles*/
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
@@ -107,7 +108,7 @@ section {
 }
 
 .navbar__menu .menu__link:active {
-    background: #333;
+    background: rgb(201, 158, 164);
     color: #fff;
     transition: ease 500ms all;
     border-radius: 30px;
@@ -126,7 +127,7 @@ section {
   left:80%;
   bottom:-17%;
 }
-/* Header Styles */
+/* Header */
 .page__header {
     background: rgb(2, 37, 26);
     position: fixed;
@@ -135,7 +136,7 @@ section {
     z-index: 55;
 }
 
-/* Footer Styles */
+/* Footer  */
 .page__footer {
     background: #000;
     padding: 3em;
@@ -146,29 +147,29 @@ section {
     color: #fff;
 }
 
-/* ---- Theme Rules ---- */
-/* Landing Container Styles */
-.landing__container {
+
+/*  Container Styles */
+.land__container {
     padding: 1em;
     text-align: left;
 }
 
 @media only screen and (min-width: 35em) {
-    .landing__container {
+    .land__container {
         max-width: 50em;
         padding: 4em;
     }
 }
 
-section:nth-of-type(even) .landing__container {
+section:nth-of-type(even) .land__container {
     margin-right: 0;
     margin-left: auto;
     text-align: right;
 }
 
-/* Background Circles */
+/* Circles */
 
-section:nth-of-type(odd) .landing__container::before {
+section:nth-of-type(odd) .land__container::before {
     content: "";
     background: rgba(184, 38, 159, 0.187);
     position: absolute;
@@ -180,7 +181,7 @@ section:nth-of-type(odd) .landing__container::before {
     transition: ease 0.5s all;
 }
 
-section:nth-of-type(even) .landing__container::before {
+section:nth-of-type(even) .land__container::before {
     content: "";
     background: rgb(151, 8, 75);
     background: linear-gradient(
@@ -199,7 +200,7 @@ section:nth-of-type(even) .landing__container::before {
     transition: ease 0.5s all;
 }
 
-section:nth-of-type(3n) .landing__container::after {
+section:nth-of-type(3n) .land__container::after {
     content: "";
     background: rgb(122, 1, 17);
     background: linear-gradient(
@@ -218,7 +219,7 @@ section:nth-of-type(3n) .landing__container::after {
     transition: ease 0.5s all;
 }
 
-section:nth-of-type(3n + 1) .landing__container::after {
+section:nth-of-type(3n + 1) .land__container::after {
     content: "";
     background: rgb(255, 255, 255);
     background: linear-gradient(
@@ -237,10 +238,10 @@ section:nth-of-type(3n + 1) .landing__container::after {
     transition: ease 0.5s all;
 }
 
-/* ---- Theme State Rules ---- */
-/* Section Active Styles */
-/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
+
+/* Sections */
+
+section.active-class {
     background: rgb(0, 0, 0);
     background: linear-gradient(
         0deg,
@@ -250,17 +251,17 @@ section.your-active-class {
     text-shadow: 3px 3px 5px black;
 }
 
-section.your-active-class .landing__container::before {
+section.active-class .land__container::before {
     opacity: 1;
     animation: rotate 4s linear 0s infinite forwards;
 }
 
-section.your-active-class .landing__container::after {
+section.active-class .land__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
-/* Section Active Styles Keyframe Animations */
+/* Keyframe Animations */
 @keyframes rotate {
     from {
         transform: rotate(0deg) translate(-1em) rotate(0deg);
