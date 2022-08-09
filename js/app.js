@@ -1,3 +1,4 @@
+           
             /**
  *
  * Manipulating the DOM exercise.
@@ -22,11 +23,11 @@
  * Define Global Variables
  *
  */
-const navBarMenu = document.getElementById("navbar__list"); // empty unordered list
-const navBarMenuSections = [...document.querySelectorAll("section")]; // creates an array and add items to it for each section in the document
+const navBarMenu = document.getElementById("navbar__list"); // empty list
+const navBarMenuSections = [...document.querySelectorAll("section")]; // makes an array and add items to it for each section in the document
 let navBarMenuItems = navBarMenuSections.length;
 const listSections = document.querySelectorAll("section"); // section elements
-const listlinks = document.querySelectorAll(".navbar__menu a"); // links in the navbar
+const listlinks = document.querySelectorAll(".navbar__menu a"); // link in the navbar
 /**
  * End Global Variables
  * Begin Main Functions
@@ -35,8 +36,8 @@ const listlinks = document.querySelectorAll(".navbar__menu a"); // links in the 
 
 // build the nav
 
-const dynamicNavBar = () => {
-    // function to dynamically add items to the nav bar list
+const myNavBar = function AddItems() {
+    // function to add items to the nav-bar list
     for (navBarMenuSection of navBarMenuSections) {
         navBarMenuSectionName = navBarMenuSection.getAttribute("data-nav");
         navBarMenuSectionLink = navBarMenuSection.getAttribute("id");
@@ -48,28 +49,28 @@ const dynamicNavBar = () => {
 
 // Add class 'active' to section when near top of viewport
 
-const sectionInViewport = (view) => {
+const sectionViewport = function sectionPos(view) {
     // determine if section is near top of viewport
     let sectionxy = view.getBoundingClientRect();
     return sectionxy.top <= 150 && sectionxy.bottom >= 150;
 };
 
-const addActiveClass = () => {
+const addActiveClass = function acitveClass() {
     // function to add active class to viewed section
     for (navBarMenuSection of navBarMenuSections) {
-        if (sectionInViewport(navBarMenuSection)) {
-            if (!navBarMenuSection.classList.contains("your-active-class")) {
-                navBarMenuSection.classList.add("your-active-class");
+        if (sectionViewport(navBarMenuSection)) {
+            if (!navBarMenuSections.classList.contains("active-class")) {
+                navBarMenuSections.classList.add("active-class");
             }
         } else {
-            navBarMenuSection.classList.remove("your-active-class");
+            navBarMenuSection.classList.remove("active-class");
         }
     }
 };
 
 // Scroll smoothly to section on anchor click
 
-const smoothScroll = () => {
+const smoothScroll = function scrollSmooth() {
     document.querySelectorAll(".menu__link").forEach((anchor) => {
         // selects all anchors with class='menu__link'
         anchor.addEventListener("click", function (e) {
@@ -88,7 +89,7 @@ const smoothScroll = () => {
 
 // Build menu
 
-dynamicNavBar();
+myNavBar();
 
 // Scroll to section on link click
 
@@ -99,3 +100,6 @@ smoothScroll();
 document.addEventListener("scroll", addActiveClass);
 
 /* End of Code */
+        
+
+
