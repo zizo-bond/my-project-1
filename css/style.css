@@ -1,19 +1,31 @@
- body {
-    background: rgb(136, 203, 171);
+   /*
+ *
+ * CSS written based on SMACSS architecture.
+ * To learn more, visit: http://smacss.com/
+ * 
+ * For simplicity, no reset or normalize is added. 
+ * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
+ *
+*/
+
+/* ---- Base Rules ---- */
+
+body {
+    background: rgb(2, 29, 16);
     background: linear-gradient(
         0deg,
-        rgb(2, 48, 26) 0%,
-        rgb(6, 73, 62) 100%
+        rgb(44, 180, 17) 0%,
+        rgb(2, 75, 47) 100%
     );
     margin: 0;
     font-family: 'Aboreto', serif;
     color: #fff;
 }
 
-/* general typo*/
+/* Typeography General*/
 h1 {
     font-family: "Aboreto", sans-serif;
-    font-size: 2em;
+    font-size: 2;
     margin: 2em 1rem;
     text-shadow: 3px 3px 5px rgb(167, 202, 193);
     margin: 18% auto;
@@ -33,7 +45,6 @@ h1 {
 }
 }
 
-
 @media only screen and (min-width: 35em) {
     h1 {
         font-size: 7em;
@@ -42,7 +53,7 @@ h1 {
 }
 
 h2 {
-    border-bottom: 1px solid rgb(107, 107, 38);
+    border-bottom: 1px solid #cc1;
     font-family: "Oxygen", Sans-Serif;
     font-size: 3em;
     color: #fff;
@@ -53,16 +64,15 @@ p {
     color: #eee;
 }
 
-/* ---- Layouts ---- */
+/* ---- Layout Rules ---- */
 main {
     margin: 10vh 1em 10vh;
 }
 
-.main-head {
+.main-hero {
     min-height: 40vh;
     padding-top: 3em;
 }
-
 
 section {
     position: relative;
@@ -71,7 +81,7 @@ section {
 
 /* ---- Module Rules ---- */
 
-/* Nav Styles*/
+/* Navigation Styles*/
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
@@ -87,15 +97,15 @@ section {
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: rgb(224, 198, 198);
-    border-radius: 15px;
+    color: rgb(243, 220, 220);
+    border-radius: 6px;
 }
 
 .navbar__menu .menu__link:hover {
-    background: rgb(6, 78, 100);
-    color: #fff;
+    background: #333;
+    color: rgb(212, 41, 41);
     transition: ease 500ms all;
-    border-radius: 6px;
+    border-radius: 30px;
     text-shadow: 0px 0px 5px rgb(255, 255, 255);
 }
 
@@ -108,13 +118,13 @@ section {
 }
 
 .navbar__menu .menu__link:active {
-    background: rgb(201, 158, 164);
+    background: rgb(151, 15, 15);
     color: #fff;
     transition: ease 500ms all;
     border-radius: 30px;
     text-shadow: 0px 0px 5px rgb(255, 255, 255);
 }
- input[type=text] {
+input[type=text] {
   float: right;
   padding: 6px;
   border: none;
@@ -127,16 +137,17 @@ section {
   left:80%;
   bottom:-17%;
 }
-/* Header */
+
+/* Header Styles */
 .page__header {
-    background: rgb(2, 37, 26);
+    background: rgb(3, 65, 26);
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 55;
+    z-index: 5;
 }
 
-/* Footer  */
+/* Footer Styles */
 .page__footer {
     background: #000;
     padding: 3em;
@@ -147,31 +158,32 @@ section {
     color: #fff;
 }
 
-
-/*  Container Styles */
-.land__container {
+/* ---- Theme Rules ---- */
+/* Landing Container Styles */
+.landing__container {
     padding: 1em;
     text-align: left;
 }
 
 @media only screen and (min-width: 35em) {
-    .land__container {
+    .landing__container {
         max-width: 50em;
         padding: 4em;
     }
 }
 
-section:nth-of-type(even) .land__container {
+section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;
     text-align: right;
 }
 
-/* Circles */
-
-section:nth-of-type(odd) .land__container::before {
+/* Background Circles */
+/* Note that background circles are created with psuedo elements before and after */
+/* Circles appear to be random do to use of :nth-of-type psuedo class */
+section:nth-of-type(odd) .landing__container::before {
     content: "";
-    background: rgba(184, 38, 159, 0.187);
+    background: rgba(255, 255, 255, 0.187);
     position: absolute;
     z-index: -5;
     width: 20vh;
@@ -181,9 +193,9 @@ section:nth-of-type(odd) .land__container::before {
     transition: ease 0.5s all;
 }
 
-section:nth-of-type(even) .land__container::before {
+section:nth-of-type(even) .landing__container::before {
     content: "";
-    background: rgb(151, 8, 75);
+    background: rgb(255, 255, 255);
     background: linear-gradient(
         0deg,
         rgba(255, 255, 255, 0.1) 0%,
@@ -200,13 +212,13 @@ section:nth-of-type(even) .land__container::before {
     transition: ease 0.5s all;
 }
 
-section:nth-of-type(3n) .land__container::after {
+section:nth-of-type(3n) .landing__container::after {
     content: "";
-    background: rgb(122, 1, 17);
+    background: rgb(255, 255, 255);
     background: linear-gradient(
         0deg,
-        rgba(179, 11, 11, 0.1) 0%,
-        rgba(48, 20, 20, 0.2) 100%
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.2) 100%
     );
     position: absolute;
     right: 0;
@@ -219,7 +231,7 @@ section:nth-of-type(3n) .land__container::after {
     transition: ease 0.5s all;
 }
 
-section:nth-of-type(3n + 1) .land__container::after {
+section:nth-of-type(3n + 1) .landing__container::after {
     content: "";
     background: rgb(255, 255, 255);
     background: linear-gradient(
@@ -238,10 +250,10 @@ section:nth-of-type(3n + 1) .land__container::after {
     transition: ease 0.5s all;
 }
 
-
-/* Sections */
-
-section.active-class {
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+section.your-active-class {
     background: rgb(0, 0, 0);
     background: linear-gradient(
         0deg,
@@ -251,17 +263,17 @@ section.active-class {
     text-shadow: 3px 3px 5px black;
 }
 
-section.active-class .land__container::before {
+section.your-active-class .landing__container::before {
     opacity: 1;
     animation: rotate 4s linear 0s infinite forwards;
 }
 
-section.active-class .land__container::after {
+section.your-active-class .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
-/* Keyframe Animations */
+/* Section Active Styles Keyframe Animations */
 @keyframes rotate {
     from {
         transform: rotate(0deg) translate(-1em) rotate(0deg);
