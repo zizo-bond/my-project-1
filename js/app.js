@@ -1,5 +1,5 @@
            
-            /**
+           /**
  *
  * Manipulating the DOM exercise.
  * Exercise programmatically builds navigation,
@@ -23,7 +23,7 @@
  * Define Global Variables
  *
  */
-const navBarMenu = document.getElementById("navbar__list"); // empty list
+ const navBarList = document.getElementById("navbar__list"); // empty list
 const navBarMenuSections = [...document.querySelectorAll("section")]; // makes an array and add items to it for each section in the document
 let navBarMenuItems = navBarMenuSections.length;
 const listSections = document.querySelectorAll("section"); // section elements
@@ -43,24 +43,24 @@ const myNavBar = function AddItems() {
         navBarMenuSectionLink = navBarMenuSection.getAttribute("id");
         navBarMenuListItem = document.createElement("li");
         navBarMenuListItem.innerHTML = `<a class='menu__link' href='#${navBarMenuSectionLink}'>${navBarMenuSectionName}</a>`;
-        navBarMenu.appendChild(navBarMenuListItem);
+        navBarList.appendChild(navBarMenuListItem);
     }
 };
 
 // Add class 'active' to section when near top of viewport
 
-const sectionViewport = function sectionPos(view) {
+const sectionInViewport = function sectionPos(view) {
     // determine if section is near top of viewport
-    let sectionxy = view.getBoundingClientRect();
-    return sectionxy.top <= 150 && sectionxy.bottom >= 150;
+    let sectionz = view.getBoundingClientRect();
+    return sectionz.top <= 200 && sectionz.bottom >= 200;
 };
 
 const addActiveClass = function acitveClass() {
     // function to add active class to viewed section
     for (navBarMenuSection of navBarMenuSections) {
-        if (sectionViewport(navBarMenuSection)) {
-            if (!navBarMenuSections.classList.contains("active-class")) {
-                navBarMenuSections.classList.add("active-class");
+        if (sectionInViewport(navBarMenuSection)) {
+            if (!navBarMenuSection.classList.contains("active-class")) {
+                navBarMenuSection.classList.add("active-class");
             }
         } else {
             navBarMenuSection.classList.remove("active-class");
@@ -94,12 +94,4 @@ myNavBar();
 // Scroll to section on link click
 
 smoothScroll();
-
-// Set sections as active
-
-document.addEventListener("scroll", addActiveClass);
-
-/* End of Code */
-        
-
 
