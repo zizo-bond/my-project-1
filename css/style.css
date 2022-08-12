@@ -1,16 +1,4 @@
-   /*
- *
- * CSS written based on SMACSS architecture.
- * To learn more, visit: http://smacss.com/
- * 
- * For simplicity, no reset or normalize is added. 
- * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
- *
-*/
-
-/* ---- Base Rules ---- */
-
-body {
+    body {
     background: rgb(2, 29, 16);
     background: linear-gradient(
         0deg,
@@ -22,7 +10,7 @@ body {
     color: #fff;
 }
 
-/* Typeography General*/
+/* general typo*/
 h1 {
     font-family: "Aboreto", sans-serif;
     font-size: 2;
@@ -45,6 +33,7 @@ h1 {
 }
 }
 
+
 @media only screen and (min-width: 35em) {
     h1 {
         font-size: 7em;
@@ -53,7 +42,7 @@ h1 {
 }
 
 h2 {
-    border-bottom: 1px solid #cc1;
+    border-bottom: 1px solid rgb(129, 12, 90);
     font-family: "Oxygen", Sans-Serif;
     font-size: 3em;
     color: #fff;
@@ -64,15 +53,16 @@ p {
     color: #eee;
 }
 
-/* ---- Layout Rules ---- */
+/* ---- Layouts ---- */
 main {
     margin: 10vh 1em 10vh;
 }
 
-.main-hero {
+.main-head {
     min-height: 40vh;
     padding-top: 3em;
 }
+
 
 section {
     position: relative;
@@ -81,7 +71,7 @@ section {
 
 /* ---- Module Rules ---- */
 
-/* Navigation Styles*/
+/* Nav Styles*/
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
@@ -97,20 +87,20 @@ section {
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: rgb(243, 220, 220);
-    border-radius: 6px;
+    color: rgb(224, 198, 198);
+    border-radius: 15px;
 }
 
 .navbar__menu .menu__link:hover {
-    background: #333;
-    color: rgb(212, 41, 41);
+    background: rgb(6, 78, 100);
+    color: #fff;
     transition: ease 500ms all;
-    border-radius: 30px;
+    border-radius: 6px;
     text-shadow: 0px 0px 5px rgb(255, 255, 255);
 }
 
 .navbar__menu .menu__link:focus {
-    background: #333;
+    background: rgb(182, 18, 18);
     color: #fff;
     transition: ease 500ms all;
     border-radius: 30px;
@@ -118,13 +108,13 @@ section {
 }
 
 .navbar__menu .menu__link:active {
-    background: rgb(151, 15, 15);
+    background: rgb(214, 186, 25);
     color: #fff;
     transition: ease 500ms all;
     border-radius: 30px;
     text-shadow: 0px 0px 5px rgb(255, 255, 255);
 }
-input[type=text] {
+ input[type=text] {
   float: right;
   padding: 6px;
   border: none;
@@ -137,17 +127,16 @@ input[type=text] {
   left:80%;
   bottom:-17%;
 }
-
-/* Header Styles */
+/* Header */
 .page__header {
-    background: rgb(3, 65, 26);
+    background: rgb(221, 179, 115);
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 5;
+    z-index: 55;
 }
 
-/* Footer Styles */
+/* Footer  */
 .page__footer {
     background: #000;
     padding: 3em;
@@ -158,31 +147,33 @@ input[type=text] {
     color: #fff;
 }
 
-/* ---- Theme Rules ---- */
-/* Landing Container Styles */
-.landing__container {
+
+/*  Container Styles */
+.land__container {
     padding: 1em;
     text-align: left;
 }
 
 @media only screen and (min-width: 35em) {
-    .landing__container {
+    .land__container {
         max-width: 50em;
         padding: 4em;
     }
 }
 
-section:nth-of-type(even) .landing__container {
+section:nth-of-type(even) .land__container {
     margin-right: 0;
     margin-left: auto;
     text-align: right;
 }
 
+/* Circles */
+
 /* Background Circles */
 /* Note that background circles are created with psuedo elements before and after */
 /* Circles appear to be random do to use of :nth-of-type psuedo class */
-section:nth-of-type(odd) .landing__container::before {
-    content: "";
+section:nth-of-type(odd) .land__container::before {
+    content: '';
     background: rgba(255, 255, 255, 0.187);
     position: absolute;
     z-index: -5;
@@ -190,17 +181,13 @@ section:nth-of-type(odd) .landing__container::before {
     height: 20vh;
     border-radius: 50%;
     opacity: 0;
-    transition: ease 0.5s all;
+    transition: ease 4s all;
 }
 
-section:nth-of-type(even) .landing__container::before {
-    content: "";
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.2) 100%
-    );
+section:nth-of-type(even) .land__container::before {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
     position: absolute;
     top: 3em;
     right: 3em;
@@ -212,14 +199,10 @@ section:nth-of-type(even) .landing__container::before {
     transition: ease 0.5s all;
 }
 
-section:nth-of-type(3n) .landing__container::after {
-    content: "";
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.2) 100%
-    );
+section:nth-of-type(3n) .land__container::after {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
     position: absolute;
     right: 0;
     bottom: 0;
@@ -231,14 +214,10 @@ section:nth-of-type(3n) .landing__container::after {
     transition: ease 0.5s all;
 }
 
-section:nth-of-type(3n + 1) .landing__container::after {
-    content: "";
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.2) 100%
-    );
+section:nth-of-type(3n + 1) .land__container::after {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
     position: absolute;
     right: 20vw;
     bottom: -5em;
@@ -250,30 +229,31 @@ section:nth-of-type(3n + 1) .landing__container::after {
     transition: ease 0.5s all;
 }
 
-/* ---- Theme State Rules ---- */
-/* Section Active Styles */
-/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
-    background: rgb(0, 0, 0);
+
+
+/* Sections */
+
+section.active-class {
+    background: rgb(223, 50, 122);
     background: linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.1) 0%,
-        rgba(0, 0, 0, 0) 100%
+        rgba(71, 34, 34, 0.1) 0%,
+        rgba(211, 6, 6, 0) 100%
     );
     text-shadow: 3px 3px 5px black;
 }
 
-section.your-active-class .landing__container::before {
+section.active-class .land__container::before {
     opacity: 1;
-    animation: rotate 4s linear 0s infinite forwards;
+    animation: rotate 10s linear 0s infinite forwards;
 }
 
-section.your-active-class .landing__container::after {
+section.active-class .land__container::after {
     opacity: 1;
-    animation: rotate 5s linear 0s infinite forwards reverse;
+    animation: rotate 10s linear 0s infinite forwards reverse;
 }
 
-/* Section Active Styles Keyframe Animations */
+/* Keyframe Animations */
 @keyframes rotate {
     from {
         transform: rotate(0deg) translate(-1em) rotate(0deg);
